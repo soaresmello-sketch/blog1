@@ -10,7 +10,7 @@
     --pink-medium: #FF69B4;
     --pink-hot: #FF1493;
     --pink-dark: #C71585;
-    --text-dark: #2B0017; /* Texto escuro para garantir alto contraste */
+    --text-dark: #2B0017;
     --text-white: #FFFFFF;
     --yellow-accent: #FFD700;
 }
@@ -120,7 +120,7 @@ body {
     box-shadow: 0 8px 0px var(--text-dark);
 }
 
-/* --- POSTS --- */
+/* --- CONTAINER E POSTS --- */
 .container {
     max-width: 1100px;
     margin: 3rem auto;
@@ -153,6 +153,19 @@ body {
     justify-content: space-between;
 }
 
+.story-card {
+    margin-bottom: 3rem;
+}
+
+.post-img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--pink-hot);
+    margin: 1rem 0;
+}
+
 .badge {
     position: absolute;
     top: -15px;
@@ -181,17 +194,33 @@ body {
 .post-card p {
     color: var(--text-dark);
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.read-more {
+/* --- CLASSE DE EXPANSAO COM JAVASCRIPT --- */
+.hidden {
+    display: none;
+}
+
+.full-content p {
+    margin-bottom: 1rem;
+}
+
+.btn-read-more {
+    background: none;
+    border: none;
     color: var(--pink-hot);
+    font-family: 'Fredoka', sans-serif;
     font-weight: 700;
-    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 0;
     transition: color 0.2s;
 }
 
-.read-more:hover {
+.btn-read-more:hover {
     color: var(--pink-dark);
     text-decoration: underline;
 }
@@ -211,14 +240,9 @@ body {
     margin-top: 0.5rem;
 }
 
-/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
         gap: 15px;
-    }
-    
-    .site-title {
-        font-size: 1.6rem;
     }
 }

@@ -1,0 +1,224 @@
+/* --- RESET E VARIÁVEIS DE COR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink-light: #FFDAE9;
+    --pink-medium: #FF69B4;
+    --pink-hot: #FF1493;
+    --pink-dark: #C71585;
+    --text-dark: #2B0017; /* Texto escuro para garantir alto contraste */
+    --text-white: #FFFFFF;
+    --yellow-accent: #FFD700;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--pink-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- CABEÇALHO E NAV --- */
+.header {
+    background-color: var(--pink-hot);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid var(--yellow-accent);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.barbie-logo {
+    width: 55px;
+    height: 55px;
+    filter: drop-shadow(2px 2px 0px #000);
+}
+
+.site-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-white);
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 3px 3px 0px var(--text-dark);
+    letter-spacing: 1px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 0px var(--text-dark);
+}
+
+.navbar a:hover {
+    background-color: var(--yellow-accent);
+    color: var(--text-dark);
+    text-shadow: none;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background: linear-gradient(135deg, var(--pink-medium), var(--pink-dark));
+    color: var(--text-white);
+    text-align: center;
+    padding: 4rem 1rem;
+    border-bottom: 5px solid var(--pink-hot);
+}
+
+.hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 0px var(--text-dark);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    font-weight: 600;
+    color: #FFF0F5;
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: var(--yellow-accent);
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 5px 0px var(--text-dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0px var(--text-dark);
+}
+
+/* --- POSTS --- */
+.container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--pink-dark);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 0px var(--text-white);
+}
+
+.grid-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background-color: #FFFFFF;
+    border: 4px solid var(--pink-hot);
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 6px 6px 0px var(--pink-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background-color: var(--pink-hot);
+    color: var(--text-white);
+    padding: 4px 12px;
+    font-weight: 700;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    border: 2px solid var(--text-dark);
+}
+
+.post-card h3 {
+    color: var(--pink-dark);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.post-card p {
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: var(--pink-hot);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: var(--pink-dark);
+    text-decoration: underline;
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: var(--text-dark);
+    color: var(--pink-light);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.tagline {
+    color: var(--pink-medium);
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .site-title {
+        font-size: 1.6rem;
+    }
+}

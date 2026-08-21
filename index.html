@@ -8,6 +8,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos adicionais para as novas funcionalidades */
+        .dark-mode {
+            background-color: #1a1a1a !important;
+            color: #f0f0f0 !important;
+        }
+        .dark-mode .post-card, 
+        .dark-mode .header, 
+        .dark-mode .footer, 
+        .dark-mode .sources-section {
+            background-color: #2b2b2b !important;
+            color: #ffffff !important;
+        }
+        .dark-mode .short-text, 
+        .dark-mode .full-content, 
+        .dark-mode .post-date {
+            color: #d1d1d1 !important;
+        }
+        .reactions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .btn-like, .btn-dislike, .btn-theme {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .btn-like {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .btn-dislike {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .btn-theme {
+            background-color: #ff1493;
+            color: white;
+            margin-left: 15px;
+        }
+        .btn-like:hover, .btn-dislike:hover, .btn-theme:hover {
+            transform: scale(1.05);
+        }
+        .sources-section {
+            background: #fff0f6;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 4rem;
+        }
+        .sources-section a {
+            color: #ff1493;
+            word-break: break-all;
+        }
+        .author-credits {
+            font-weight: bold;
+            color: #ff1493;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
 
@@ -25,7 +88,9 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#conto">O Conto</a></li>
                 <li><a href="#looks">Ideias de Looks</a></li>
+                <li><a href="#fontes">Fontes</a></li>
                 <li><a href="#contato">Contato</a></li>
+                <li><button id="toggle-theme" class="btn-theme">🌙 Modo Escuro</button></li>
             </ul>
         </nav>
     </header>
@@ -56,6 +121,11 @@
             </div>
             
             <button class="btn-read-more">Ler mais &rarr;</button>
+
+            <div class="reactions">
+                <button class="btn-like">👍 Curtir (<span class="like-count">0</span>)</button>
+                <button class="btn-dislike">👎 Descurtir (<span class="dislike-count">0</span>)</button>
+            </div>
         </article>
 
         <h2 class="section-title" id="looks" style="margin-top: 4rem;">👗 Ideias de Looks Pink</h2>
@@ -72,6 +142,11 @@
                 </div>
                 
                 <button class="btn-read-more">Ler mais &rarr;</button>
+
+                <div class="reactions">
+                    <button class="btn-like">👍 Curtir (<span class="like-count">0</span>)</button>
+                    <button class="btn-dislike">👎 Descurtir (<span class="dislike-count">0</span>)</button>
+                </div>
             </article>
 
             <article class="post-card">
@@ -85,6 +160,11 @@
                 </div>
                 
                 <button class="btn-read-more">Ler mais &rarr;</button>
+
+                <div class="reactions">
+                    <button class="btn-like">👍 Curtir (<span class="like-count">0</span>)</button>
+                    <button class="btn-dislike">👎 Descurtir (<span class="dislike-count">0</span>)</button>
+                </div>
             </article>
 
             <article class="post-card">
@@ -98,16 +178,63 @@
                 </div>
                 
                 <button class="btn-read-more">Ler mais &rarr;</button>
+
+                <div class="reactions">
+                    <button class="btn-like">👍 Curtir (<span class="like-count">0</span>)</button>
+                    <button class="btn-dislike">👎 Descurtir (<span class="dislike-count">0</span>)</button>
+                </div>
             </article>
         </div>
+
+        <section class="sources-section" id="fontes">
+            <h2>🔗 Fontes e Referências</h2>
+            <p>As informações, tendências de moda e inspirações de conteúdo deste site foram retiradas de:</p>
+            <ul>
+                <li>Site Oficial da Barbie: <a href="https://barbie.mattel.com" target="_blank" rel="noopener noreferrer">barbie.mattel.com</a></li>
+                <li>Portal de Moda & Tendências: <a href="https://www.vogue.com" target="_blank" rel="noopener noreferrer">vogue.com</a></li>
+            </ul>
+        </section>
 
     </main>
 
     <footer class="footer" id="contato">
         <p>&copy; 2026 Barbie DreamHouse Blog. Todos os direitos reservados.</p>
+        <p class="author-credits">Desenvolvido por: Maria Eduarda Soares</p>
         <p class="tagline">Life in Plastic, It's Fantastic! ✨</p>
     </footer>
 
+    <script>
+        // Alternar Modo Escuro
+        const themeBtn = document.getElementById('toggle-theme');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                themeBtn.textContent = '☀️ Modo Claro';
+            } else {
+                themeBtn.textContent = '🌙 Modo Escuro';
+            }
+        });
+
+        // Funcionalidade dos botões de Curtir e Descurtir
+        document.querySelectorAll('.post-card').forEach(card => {
+            const likeBtn = card.querySelector('.btn-like');
+            const dislikeBtn = card.querySelector('.btn-dislike');
+            const likeCount = card.querySelector('.like-count');
+            const dislikeCount = card.querySelector('.dislike-count');
+
+            if (likeBtn && dislikeBtn) {
+                likeBtn.addEventListener('click', () => {
+                    let currentLikes = parseInt(likeCount.textContent);
+                    likeCount.textContent = currentLikes + 1;
+                });
+
+                dislikeBtn.addEventListener('click', () => {
+                    let currentDislikes = parseInt(dislikeCount.textContent);
+                    dislikeCount.textContent = currentDislikes + 1;
+                });
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
